@@ -1,22 +1,16 @@
 #include <iostream>
-#include <string>
 using namespace std;
-string convertMillis(long millis) {
-    long totalSeconds = millis / 1000;
-    long seconds = totalSeconds % 60;
-    long totalMinutes = totalSeconds / 60;
-    long minutes = totalMinutes % 60;
-    long hours = totalMinutes / 60;
+void convertMillis(long millis) {
+    int seconds = millis / 1000;
+    int minutes = seconds / 60;
+    int hours = minutes / 60;
+    minutes = minutes % 60;
+    seconds = seconds % 60;
+    cout << hours << ":" << minutes << ":" << seconds << endl;
 
-    return to_string(hours) + ":" + to_string(minutes) + ":" + to_string(seconds);
 }
-
 int main() {
-    long millis;
-    cin >> millis;
+    convertMillis(555550000);
 
-    string time = convertMillis(millis);
-    cout << time << endl;
 
-    return 0;
 }
